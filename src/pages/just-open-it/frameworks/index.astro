@@ -1,0 +1,122 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../../consts";
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+import FormattedDate from "@/components/FormattedDate.astro";
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+// Define type for our collection
+type LetsOpenItItem = {
+  id: string;
+  collection: string;
+  data: {
+    title: string;
+    description: string;
+    icon: string;
+    pubDate: Date;
+    category: 'models' | 'frameworks' | 'applications';
+    heroImage?: string;
+    tags?: string[];
+    updatedDate?: Date;
+  };
+};
+
+// Get content from letsOpenIt collection
+// Filter for frameworks category and sort by date
+const frameworks = ((await getCollection("letsOpenIt")) || []).filter(
+  (item: LetsOpenItItem) => item.data.category === 'frameworks'
+).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Function to determine URL
+function getItemUrl(item: LetsOpenItItem) {
+  return `/just-open-it/frameworks/${item.id}/`;
+}
+
+const bgClasses = [
+  "bg-pgreen rounded-full",
+  "bg-pblue rounded-2xl",
+  "bg-ppink ",
+  "bg-pyellow rounded-md",
+];
+
+const getRandomClass = () => {
+  return bgClasses[Math.floor(Math.random() * bgClasses.length)];
+};
+
+// Hero image setup
+const heroImage = "/src/assets/adriana.jpg";
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}');
+if (!images[heroImage]) throw new Error(`"${heroImage}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`${SITE_TITLE} - Open Source AI Frameworks`} description="Explore our curated list of powerful open-source frameworks for developing AI applications" />
+  </head>
+  <body>
+    <Header />
+    <main class="container mx-auto md:px-10">
+      <div class="relative mb-20" transition:animate="fade">
+        <span class="bg-black bg-opacity-25 w-full h-full absolute"></span>
+        <div class="absolute bottom-10 md:left-20 left-6 text-white">
+          <h1 class="text-4xl md:text-9xl font-semibold text-shadow">
+            <span class="font-kablamo text-ppink">F</span>rameworks
+          </h1>
+          <p class="max-w-3xl">
+            Explore our curated list of robust open-source frameworks and libraries that make it easier to
+            build AI applications.
+          </p>
+        </div>
+        <Image src={images[heroImage]()} alt="Open Source AI Frameworks" class="h-96 w-full object-cover"/>
+      </div>
+      <section class="flex flex-col text-left gap-8 pb-12 px-6 md:px-10">
+        <div class="text-pblack">Let's Open It</div>
+        <p class="text-xl max-w-3xl">
+          These frameworks provide the foundation for creating,
+          training, and deploying AI models without relying on proprietary solutions.
+        </p>
+      </section>
+
+      <section class="my-12 px-6 md:px-10">
+        <ul class="flex flex-wrap justify-start gap-8">
+          {
+            frameworks.map((item) => {
+              const randomClass = getRandomClass();
+              return (
+                <li class="w-72 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition px-4 py-6 flex flex-col gap-6">
+                  <a href={getItemUrl(item)} class="flex flex-col gap-4">
+                    <div
+                      class={`${randomClass} text-4xl p-2 self-start border-1 border-black shadow-card1 group-hover:shadow-card transition`}
+                    >
+                      <Icon name={item.data.icon} />
+                    </div>
+                    <h4 class="text-xl font-semibold">{item.data.title}</h4>
+                    <p class="date -mt-4 text-sm font-light">
+                      <FormattedDate date={item.data.pubDate} />
+                    </p>
+                  </a>
+                  <div set:html={item.data.description} />
+                </li>
+              );
+            })
+          }
+        </ul>
+
+        {frameworks.length === 0 && (
+          <div class="text-center py-12">
+            <p class="text-xl">No frameworks available yet. Check back soon!</p>
+          </div>
+        )}
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

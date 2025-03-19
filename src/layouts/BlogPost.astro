@@ -1,0 +1,93 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import { Icon } from "astro-icon/components";
+
+type Props = {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  tags?: string[];
+  icon?: string;
+};
+
+const {
+  title = "",
+  description,
+  pubDate,
+  updatedDate,
+  heroImage = "/fran.jpg",
+  icon,
+  tags,
+} = Astro.props;
+// No need to fetch blog posts anymore
+const bgClasses = [
+  "hover:shadow-ppinkHover",
+  "hover:shadow-pgreenHover",
+  "hover:shadow-pblueHover",
+  "hover:shadow-pyellow",
+
+];
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}')
+if (!images[heroImage]) throw new Error(`"${heroImage}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+
+const getRandomClass = () => {
+  return bgClasses[Math.floor(Math.random() * bgClasses.length)];
+};
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <Header />
+    <main class="container mx-auto md:px-10 text-white">
+      <article >
+        <div class="relative mb-20" transition:animate="fade">
+          <span class="bg-black bg-opacity-25 w-full h-full absolute"></span>
+          <div class="absolute bottom-10 md:left-20 left-6">
+            <h1 class="text-3xl md:text-7xl font-semibold text-shadow">
+              <span class="font-kablamo text-ppink">{title.charAt(0)}</span>{
+                title.slice(1)
+              }
+            </h1>
+            <p  set:html={description} />
+          </div>
+          <Image src={images[heroImage]()}  alt={title} class="h-96 w-full object-cover"/>
+        </div>
+        <div class="text-black px-6 md:px-0">
+          <div class="">
+            <div class="text-sm text-pblack flex items-center justify-between">
+              <FormattedDate date={pubDate} />
+              {
+                updatedDate && (
+                  <div class="last-updated-on">
+                    Last updated on <FormattedDate date={updatedDate} />
+                  </div>
+                )
+              }
+              <Icon name={icon} class="text-5xl" transition:animate="fade" />
+            </div>
+
+            <hr />
+          </div>
+          <div class="flex py-10 flex-col">
+            <div class="prose max-w-3xl mx-auto flex flex-col gap-6">
+              <slot />
+            </div>
+            <!-- Author and contributors section removed -->
+          </div>
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>

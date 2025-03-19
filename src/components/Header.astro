@@ -1,0 +1,53 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import "../styles/hamburgers.css";
+---
+
+<header>
+  <nav
+    class="flex container mx-auto md:p-10 px-4 py-6 items-center justify-between"
+  >
+    <a class="flex items-center gap-2" href="/">
+      <p class="font-kablamo text-ppink text-4xl md:text-5xl">O</p>
+      <p class="pt-2 md:text-lg font-semibold flex">
+        <span>Let's Open</span> AI
+      </p>
+    </a>
+    <ul class="items-center md:gap-8 text-nowrap hidden md:flex">
+      <li><HeaderLink href="/" text="Home" style="primary" /></li>
+      <li><HeaderLink href="/just-open-it" text="Just Open It" style="secondary" /></li>
+      <li><HeaderLink href="/about" text="About" style="tertiary" /></li>
+    </ul>
+    <div class="md:hidden z-40">
+      <button class="hamburger hamburger--elastic" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+
+      <div id="navigation" class="fixed top-0 left-0 w-full h-full bg-white transform -translate-y-full transition-transform duration-300 ease-in-out">
+        <ul class="flex flex-col items-center justify-center h-full gap-8 text-nowrap">
+          <li><HeaderLink href="/" text="Home" style="primary" /></li>
+          <li><HeaderLink href="/just-open-it" text="Just Open It" style="secondary" /></li>
+          <li><HeaderLink href="/about" text="About" style="tertiary" /></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<script is:inline>
+  function init(){
+    const hamburger = document.querySelector(".hamburger");
+    const menu = document.getElementById("navigation");
+
+    if (hamburger && menu) {
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("is-active");
+        menu.classList.toggle("-translate-y-full");
+        menu.classList.toggle("translate-y-0");
+      });
+    }
+  }
+  init();
+  document.addEventListener("astro:after-swap", init);
+</script>

@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import BlogPost from "@/layouts/BlogPost.astro";
+
+export async function getStaticPaths() {
+  const allEntries = await getCollection("letsOpenIt");
+  
+  // Filter to only include models
+  const entries = allEntries.filter(entry => {
+    return entry.data.category === 'models';
+  });
+  
+  return entries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entrySlug: entry.id, entryData: entry.data, entryBody: entry.body },
+  }));
+}
+
+export const prerender = true;
+
+const { entrySlug, entryData, entryBody } = Astro.props;
+---
+
+<BlogPost {...entryData}>
+  <div set:html={entryBody} />
+</BlogPost>

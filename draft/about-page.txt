@@ -1,0 +1,72 @@
+# About Open Source AI Alternatives
+
+## Our Mission
+
+We believe that artificial intelligence should be open, accessible, and democratized. This project aims to provide a comprehensive resource for individuals and organizations looking to leverage open source AI technologies as alternatives to proprietary, closed-source solutions.
+
+### Why We Created This Site
+
+In 2015, OpenAI was founded as a non-profit with the mission to ensure artificial general intelligence (AGI) would benefit all of humanity. Their original charter emphasized:
+
+> "Our goal is to build value for everyone rather than shareholders... We are committed to providing public goods that help society navigate the path to AGI."
+
+However, OpenAI has since:
+
+1. Restructured as a for-profit entity
+2. Secured exclusive commercial deals worth billions
+3. Gradually closed access to their most powerful models
+4. Created a walled garden ecosystem with their models accessible only through APIs
+5. Maintained opaque policies about data usage and model training
+
+This shift from open to closed represents a concerning trend in AI development, where powerful technology becomes centralized and controlled by a few large corporations.
+
+We created this resource to highlight that viable alternatives exist. Open source AI models have rapidly advanced and now offer comparable capabilities to proprietary options, often with greater flexibility, transparency, and control.
+
+## The Value of Open Source AI
+
+Open source models provide several key advantages:
+
+- **Transparency**: Understand what data trained the model and how it works
+- **Control**: Deploy on your own infrastructure with complete data privacy
+- **Customization**: Adapt and fine-tune models for specific use cases
+- **Cost efficiency**: Eliminate per-token or per-call API fees
+- **Innovation**: Build upon and improve existing models collaboratively
+- **Ownership**: Maintain control of your AI stack and avoid vendor lock-in
+- **Longevity**: Models cannot be deprecated or changed without your consent
+
+## Who We Are
+
+This project was created by a collective of AI engineers, researchers, and enthusiasts who believe in the democratizing power of open source technology. We are not affiliated with any of the models or organizations listed on this site.
+
+We maintain this resource as a labor of love and commitment to ensuring AI development remains accessible to all. Our goal is to provide accurate, up-to-date information about open alternatives to proprietary AI systems.
+
+## How You Can Contribute
+
+This website is itself open source and welcomes contributions:
+
+- **Submit updates**: Help keep information current as the field rapidly evolves
+- **Add new alternatives**: Suggest new open source models we've missed
+- **Improve documentation**: Enhance our guides with your deployment experience
+- **Fix errors**: Correct any inaccuracies you find
+- **Share deployment stories**: Provide case studies of successful open source AI usage
+
+To contribute, please visit our [GitHub repository](https://github.com/yourusername/open-source-ai-alternatives) and submit a pull request or open an issue.
+
+## Contact
+
+Have questions, suggestions, or feedback? Reach out to us:
+
+- **GitHub**: [github.com/yourusername/open-source-ai-alternatives](https://github.com/yourusername/open-source-ai-alternatives)
+- **Email**: [your-email@example.com](mailto:your-email@example.com)
+- **Twitter**: [@OpenSourceAI](https://twitter.com/)
+
+## Acknowledgments
+
+This project stands on the shoulders of the incredible open source AI community, including:
+
+- The researchers and engineers who develop and release open models
+- The organizations funding open source AI research
+- Community members who provide documentation, tools, and support
+- Everyone who chooses to use and improve open source AI technology
+
+Together, we're building a more open future for artificial intelligence.

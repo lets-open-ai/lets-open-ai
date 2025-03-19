@@ -1,0 +1,32 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import { render } from "astro:content";
+import BlogPost from "@/layouts/BlogPost.astro";
+
+export async function getStaticPaths() {
+  const allEntries = await getCollection("letsOpenIt");
+  
+  // Filter to only include applications
+  const entries = allEntries.filter(entry => {
+    return entry.data.category === 'applications';
+  });
+  
+  return entries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entryId: entry.id, entryData: entry.data },
+  }));
+}
+
+export const prerender = true;
+
+const { entryId, entryData } = Astro.props;
+const entry = await getEntry("letsOpenIt", entryId);
+if (!entry) {
+  throw new Error(`Entry not found: ${entryId}`);
+}
+const { Content } = await render(entry);
+---
+
+<BlogPost {...entryData}>
+  <Content />
+</BlogPost>

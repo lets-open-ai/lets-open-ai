@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Source AI Alternatives</title>
+    <style>
+        :root {
+            --primary: #2a7de1;
+            --secondary: #38b2ac;
+            --background: #f8fafc;
+            --text: #1a202c;
+            --light-gray: #e2e8f0;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        nav {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+        }
+        
+        nav li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav a {
+            display: block;
+            padding: 15px 20px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        
+        .cta-button:hover {
+            background: #1c64c8;
+        }
+        
+        .categories {
+            padding: 40px 0;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .category-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        
+        .category-content {
+            padding: 20px;
+        }
+        
+        .category-content h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .quick-facts {
+            background: #ebf8ff;
+            padding: 40px 0;
+            margin: 40px 0;
+        }
+        
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .fact-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .fact-item .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #a0aec0;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Open Source AI Alternatives</h1>
+            <p>Democratizing AI through open, accessible alternatives to proprietary models</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Language Models</a></li>
+            <li><a href="#">Image Generation</a></li>
+            <li><a href="#">Speech & Audio</a></li>
+            <li><a href="#">Code Generation</a></li>
+            <li><a href="#">Deployment</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <div class="container">
+            <h2>The Future of AI Should Be Open</h2>
+            <p>
+                Proprietary AI models like those from OpenAI are powerful but limited by closed access, centralized control, and uncertain licensing. We believe open source alternatives can provide comparable capabilities while ensuring democratized access, transparency, and community-driven innovation.
+            </p>
+            <a href="#" class="cta-button">Explore Alternatives</a>
+        </div>
+    </section>
+    
+    <section class="categories">
+        <div class="container">
+            <h2>OpenAI Products and Open Alternatives</h2>
+            <p>Find high-quality open source alternatives to OpenAI's product lineup:</p>
+            
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="/api/placeholder/400/300" alt="Language Models">
+                    <div class="category-content">
+                        <h3>Language Models</h3>
+                        <p>Open alternatives to GPT-4 and GPT-3.5 for text generation, conversation, and reasoning.</p>
+                        <p><strong>Options include:</strong> LLaMA 2, BLOOM, Falcon, MPT, Mistral</p>
+                        <a href="#">View Alternatives →</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <img src="/api/placeholder/400/300" alt="Image Generation">
+                    <div class="category-content">
+                        <h3>Image Generation</h3>
+                        <p>Open alternatives to DALL-E for creating images from text descriptions.</p>
+                        <p><strong>Options include:</strong> Stable Diffusion, Leonardo.ai (SD-based)</p>
+                        <a href="#">View Alternatives →</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <img src="/api/placeholder/400/300" alt="Speech & Audio">
+                    <div class="category-content">
+                        <h3>Speech & Audio</h3>
+                        <p>Open alternatives to Whisper for speech recognition and audio processing.</p>
+                        <p><strong>Options include:</strong> Mozilla DeepSpeech, Coqui STT</p>
+                        <a href="#">View Alternatives →</a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <img src="/api/placeholder/400/300" alt="Code Generation">
+                    <div class="category-content">
+                        <h3>Code Generation</h3>
+                        <p>Open alternatives to Codex/GitHub Copilot for code completion and generation.</p>
+                        <p><strong>Options include:</strong> StarCoder, CodeLlama, SantaCoder</p>
+                        <a href="#">View Alternatives →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="quick-facts">
+        <div class="container">
+            <h2>Why Choose Open Source AI?</h2>
+            
+            <div class="fact-grid">
+                <div class="fact-item">
+                    <div class="number">100%</div>
+                    <p>Control over your data and application</p>
+                </div>
+                
+                <div class="fact-item">
+                    <div class="number">$0</div>
+                    <p>Per-token costs for self-hosted models</p>
+                </div>
+                
+                <div class="fact-item">
+                    <div class="number">∞</div>
+                    <p>Unlimited customization potential</p>
+                </div>
+                
+                <div class="fact-item">
+                    <div class="number">1000s</div>
+                    <p>Community contributors improving models</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="container">
+        <h2>Latest Developments</h2>
+        <p>The open source AI ecosystem is evolving rapidly. Here are some recent highlights:</p>
+        
+        <ul>
+            <li><strong>LLaMA 2 (70B)</strong> - Meta's new open model approaching GPT-3.5 capabilities with commercial use allowed</li>
+            <li><strong>Falcon (180B)</strong> - One of the largest open source language models available</li>
+            <li><strong>Stable Diffusion XL</strong> - Significant quality improvements for open image generation</li>
+            <li><strong>Mistral 7B</strong> - Achieving remarkable performance for its small size</li>
+        </ul>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>Open Source AI Alternatives - Democratizing AI for Everyone</p>
+            <p>
+                <a href="#">GitHub</a> |
+                <a href="#">Contribute</a> |
+                <a href="#">Contact</a>
+            </p>
+            <p class="copyright">This site is open source. Help us improve it!</p>
+        </div>
+    </footer>
+</body>
+</html>

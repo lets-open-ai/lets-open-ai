@@ -1,0 +1,27 @@
+---
+const today = new Date();
+import { Icon } from "astro-icon/components";
+---
+
+<footer
+  class="flex flex-col items-center container mx-auto p-10 text-center gap-10 pb-40"
+>
+  &copy; {today.getFullYear()} Let's Open AI. All rights reserved.
+  <p>Open source is all you need - powerful, transparent, and freely accessible AI.</p>
+  <div class="flex items-center gap-6 text-5xl">
+    <a
+      href="https://github.com/lets-open-ai/lets-open-ai"
+      target="_blank"
+      class="border-1 p-1 border-black rounded-full bg-pblue shadow-card hover:shadow-hover transition"
+    >
+      <Icon name="github" />
+    </a>
+    <a
+      href="https://letsopen.ai"
+      target="_blank"
+      class="border-1 p-1 border-black rounded-full bg-pgreen shadow-card hover:shadow-hover transition"
+    >
+      <Icon name="web" />
+    </a>
+  </div>
+</footer>

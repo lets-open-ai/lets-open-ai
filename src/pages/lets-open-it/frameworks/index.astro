@@ -1,0 +1,103 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../../consts";
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+import FormattedDate from "@/components/FormattedDate.astro";
+
+// Define type for our collection
+type LetsOpenItItem = {
+  id: string;
+  collection: string;
+  data: {
+    title: string;
+    description: string;
+    icon: string;
+    pubDate: Date;
+    category: 'models' | 'frameworks' | 'applications';
+    heroImage?: string;
+    tags?: string[];
+    updatedDate?: Date;
+  };
+};
+
+// Get content from letsOpenIt collection
+// Filter for frameworks category and sort by date
+const frameworks = ((await getCollection("letsOpenIt")) || []).filter(
+  (item: LetsOpenItItem) => item.data.category === 'frameworks'
+).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Function to determine URL
+function getItemUrl(item: LetsOpenItItem) {
+  return `/lets-open-it/frameworks/${item.id}/`;
+}
+
+const bgClasses = [
+  "bg-pgreen rounded-full",
+  "bg-pblue rounded-2xl",
+  "bg-ppink ",
+  "bg-pyellow rounded-md",
+];
+
+const getRandomClass = () => {
+  return bgClasses[Math.floor(Math.random() * bgClasses.length)];
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`${SITE_TITLE} - Open Source AI Frameworks`} description="Explore powerful open-source frameworks for developing AI applications" />
+  </head>
+  <body>
+    <Header />
+    <main class="container mx-auto md:px-10 py-12">
+      <section class="flex flex-col text-left gap-8 pb-12">
+        <div class="text-pblack">Let's Open It</div>
+        <h1 class="text-6xl font-bold">Open Source AI Frameworks</h1>
+        <p class="text-xl max-w-3xl">
+          Discover robust open-source frameworks and libraries that make it easier to
+          build AI applications. These frameworks provide the foundation for creating,
+          training, and deploying AI models without relying on proprietary solutions.
+        </p>
+      </section>
+
+      <section class="my-12">
+        <ul class="flex flex-wrap justify-start gap-8">
+          {
+            frameworks.map((item) => {
+              const randomClass = getRandomClass();
+              return (
+                <li class="w-72 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition px-4 py-6 flex flex-col gap-6">
+                  <a href={getItemUrl(item)} class="flex flex-col gap-4">
+                    <div
+                      class={`${randomClass} text-4xl p-2 self-start border-1 border-black shadow-card1 group-hover:shadow-card transition`}
+                    >
+                      <Icon name={item.data.icon} />
+                    </div>
+                    <h4 class="text-xl font-semibold">{item.data.title}</h4>
+                    <p class="date -mt-4 text-sm font-light">
+                      <FormattedDate date={item.data.pubDate} />
+                    </p>
+                  </a>
+                  <div set:html={item.data.description} />
+                </li>
+              );
+            })
+          }
+        </ul>
+
+        {frameworks.length === 0 && (
+          <div class="text-center py-12">
+            <p class="text-xl">No frameworks available yet. Check back soon!</p>
+          </div>
+        )}
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

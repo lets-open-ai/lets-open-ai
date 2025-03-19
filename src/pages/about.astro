@@ -1,0 +1,120 @@
+---
+import Layout from '@/layouts/BlogPost.astro';
+const tags = ['open-source', 'ai', 'machine-learning', 'alternatives', 'democratizing-ai'];
+const description = `
+  <p class="text-left">
+    Let's Open AI maintains a curated list of competitive open source alternatives to the best performing closed source models, promoting transparency, control, and freedom from proprietary limitations.
+  </p>
+`;
+---
+
+<Layout
+	tags={tags}
+	icon="info"
+	title="About"
+	description= {description}
+	pubDate={new Date('March 18 2025')}
+	heroImage="/src/assets/fran.jpg"
+>
+	<h2>Our Mission</h2>
+	<p>
+		We believe that artificial intelligence should be open, accessible, and democratized. This project aims to provide a comprehensive resource for individuals and organizations looking to leverage open source AI technologies as alternatives to proprietary, closed-source solutions.
+	</p>
+
+	<h3>Why We Created This Site</h3>
+	<p>
+		In 2015, OpenAI was founded as a non-profit with the mission to ensure artificial general intelligence (AGI) would benefit all of humanity. Their original charter emphasized:
+	</p>
+
+	<blockquote>
+		<p>We believe AI should be an extension of individual human wills and, in the spirit of liberty, as broadly and evenly distributed as possible.</p>
+		<p>As a non-profit, our aim is to build value for everyone rather than shareholders. Researchers will be strongly encouraged to publish their work, whether as papers, blog posts, or code, and our patents⁠ (if any) will be shared with the world. We'll freely collaborate with others across many institutions and expect to work with companies to research and deploy new technologies.</p>
+	</blockquote>
+
+	<p>
+		However, OpenAI has since:
+	</p>
+
+	<ol>
+		<li>Restructured as a for-profit entity</li>
+		<li>Secured exclusive commercial deals worth billions</li>
+		<li>Gradually closed access to their most powerful models</li>
+		<li>Created a walled garden ecosystem with their models accessible only through APIs</li>
+		<li>Maintained opaque policies about data usage and model training</li>
+	</ol>
+
+	<p>
+		This shift from open to closed represents a concerning trend in AI development, where powerful technology becomes centralized and controlled by a few large corporations.
+	</p>
+
+	<p>
+		We created this resource to highlight that viable alternatives exist. Open source AI models have rapidly advanced and now offer comparable capabilities to proprietary options, often with greater flexibility, transparency, and control.
+	</p>
+
+	<h2>The Value of Open Source AI</h2>
+	<p>
+		Open source models provide several key advantages:
+	</p>
+
+	<ul>
+		<li><strong>Transparency</strong>: Understand what data trained the model and how it works</li>
+		<li><strong>Control</strong>: Deploy on your own infrastructure with complete data privacy</li>
+		<li><strong>Customization</strong>: Adapt and fine-tune models for specific use cases</li>
+		<li><strong>Cost efficiency</strong>: Eliminate per-token or per-call API fees</li>
+		<li><strong>Innovation</strong>: Build upon and improve existing models collaboratively</li>
+		<li><strong>Ownership</strong>: Maintain control of your AI stack and avoid vendor lock-in</li>
+		<li><strong>Longevity</strong>: Models cannot be deprecated or changed without your consent</li>
+	</ul>
+
+	<h2>Who We Are</h2>
+	<p>
+		This project was created by a collective of AI engineers, researchers, and enthusiasts who believe in the democratizing power of open source technology. We are not affiliated with any of the models or organizations listed on this site.
+	</p>
+
+	<p>
+		We maintain this resource as a labor of love and commitment to ensuring AI development remains accessible to all. Our goal is to provide accurate, up-to-date information about open alternatives to proprietary AI systems.
+	</p>
+
+	<h2>How You Can Contribute</h2>
+	<p>
+		This website is itself open source and welcomes contributions:
+	</p>
+
+	<ul>
+		<li><strong>Submit updates</strong>: Help keep information current as the field rapidly evolves</li>
+		<li><strong>Add new alternatives</strong>: Suggest new open source models we've missed</li>
+		<li><strong>Improve documentation</strong>: Enhance our guides with your deployment experience</li>
+		<li><strong>Fix errors</strong>: Correct any inaccuracies you find</li>
+		<li><strong>Share deployment stories</strong>: Provide case studies of successful open source AI usage</li>
+	</ul>
+
+	<p>
+		To contribute, please visit our <a href="https://github.com/lets-open-ai/lets-open-ai">GitHub repository</a> and submit a pull request or open an issue.
+	</p>
+
+	<h2>Contact</h2>
+	<p>
+		Have questions, suggestions, or feedback? Reach out to us:
+	</p>
+
+	<ul>
+		<li><strong>GitHub</strong>: <a href="https://github.com/lets-open-ai/lets-open-ai">github.com/lets-open-ai/lets-open-ai</a></li>
+		<li><strong>Website</strong>: <a href="https://letsopen.ai">letsopen.ai</a></li>
+	</ul>
+
+	<h2>Acknowledgments</h2>
+	<p>
+		This project stands on the shoulders of the incredible open source AI community, including:
+	</p>
+
+	<ul>
+		<li>The researchers and engineers who develop and release open models</li>
+		<li>The organizations funding open source AI research</li>
+		<li>Community members who provide documentation, tools, and support</li>
+		<li>Everyone who chooses to use and improve open source AI technology</li>
+	</ul>
+
+	<p>
+		Together, we're building a more open future for artificial intelligence.
+	</p>
+</Layout>
